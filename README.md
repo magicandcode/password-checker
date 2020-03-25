@@ -8,7 +8,7 @@
     ```
 
 2. Run and pass image directory as parameter using either relative or absolute path
-    ![Sample image](./sample_img/sample.png?raw=true "Sample passwords to check")
+    ![Sample image](/../master/sample_img/sample.png?raw=true "Sample passwords to check")
     
     The sample dir `sample_img` contains only one image, `sample.png`, resulting in the below output:
     ```
