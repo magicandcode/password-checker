@@ -21,4 +21,4 @@ if __name__ == '__main__':
 
     IMAGES = Path(IMAGE_DIR_NAME).glob('*')
     IMAGE_NAMES = (str(img.joinpath()) for img in IMAGES)
-    main(IMAGE_NAMES, obscured=True)
+    main(IMAGE_NAMES, obscured=False)

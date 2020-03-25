@@ -23,8 +23,7 @@ def get_api_response(hashed_password):
                 f'Invalid query "{hash_prefix}", please try again.')
         return response
     except RuntimeError as e:
-        print(e)
-        return None
+        raise e
 
 
 def get_leaked_password_hashes(api_response):
@@ -66,11 +65,10 @@ def get_password_sha1_hashes(plain_password):
 
 def pwned_api_check(plain_password):
     """Return number of times password has been leaked."""
-    hashed_password_prefix, hashed_password_tail = get_password_sha1_hashes(
-        plain_password)
-    response = get_api_response(hashed_password_prefix)
+    hashed_prefix, hashed_tail = get_password_sha1_hashes(plain_password)
+    response = get_api_response(hashed_prefix)
     leaked_hashes = get_leaked_password_hashes(response)
-    return get_password_leaks_count(hashed_password_tail, leaked_hashes)
+    return get_password_leaks_count(hashed_tail, leaked_hashes)
 
 
 def check_password(plain_password, obscured=True):
